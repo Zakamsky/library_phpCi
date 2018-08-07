@@ -1,0 +1,20 @@
+.card {
+	min-width: 240px;
+	max-width: 240px;
+}
+
+.card-header {
+	min-height: 4.5rem;
+}
+.btn {
+	min-height: 2rem;
+}
+
+.card-footer {
+	min-height: 4rem;
+}
+
+.form {
+	min-width: 300px;
+	max-width: 600px;
+}
