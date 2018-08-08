@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Libs extends CI_Controller {
 
-	public function index() //index - books
+	public function index()
 	{
-//		$this->load->model('books_model'); //подгрузил в автолоад
+
 		$data['books'] = $this->books_model->get_books();
 		$data['genres'] = $this->books_model->get_genres();
 
@@ -15,7 +15,7 @@ class Libs extends CI_Controller {
 	function add_book()
 	{
 		$this->load->library('form_validation');
-//		$this->load->model('books_model');
+
 		$data['genres'] = $this->books_model->get_genres();
 
 		if (isset($_POST['add']))
@@ -30,7 +30,7 @@ class Libs extends CI_Controller {
 				$add['genre_id'] = $this->input->post('genre_id');
 				$add['year'] = $this->input->post('year');
 
-//				$this->db->insert('books', $add);
+
 				$this->books_model->add_book($add);
 
 				$this->load->view('info_view');
@@ -48,7 +48,7 @@ class Libs extends CI_Controller {
 	}
 
 
-	function edit_book($id) //доработать!!!
+	function edit_book($id)
 	{
 		$id_id = $id;
 		$this->load->library('form_validation');
@@ -66,7 +66,7 @@ class Libs extends CI_Controller {
 				$edit['genre_id'] = $this->input->post('genre_id');
 				$edit['year'] = $this->input->post('year');
 
-//				$this->db->insert('books', $add);
+
 				$this->books_model->edit_book($id, $edit);
 
 				$this->load->view('info_view');
@@ -82,13 +82,12 @@ class Libs extends CI_Controller {
 			$this->load->view('edit_book_view', $data);
 		}
 
-		//$this->load->model('books_model'); //подгрузил в автолоад
-//		$this->books_model->edit_book($id, $edit);
+
 	}
 
-	function del_book($id) //доработать!!!
+	function del_book($id)
 	{
-		//$this->load->model('books_model'); //подгрузил в автолоад
+
 		$this->books_model->del_book($id);
 		$this->load->view('info_view');
 	}
